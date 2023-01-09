@@ -184,6 +184,9 @@ INSERT INTO [jko_wallet_adjustment] (ordersn, orderid, shopid, amount, grass_dat
 INSERT INTO [jko_wallet_adjustment] (ordersn, orderid, shopid, amount, grass_date, [description]) 
 	VALUES ('_2211144054890000', 0, 0, 537, '2022-11-30', 'ordersn error')
 
+-- 補蝦皮日嚐選物調整數
+INSERT INTO [jko_wallet_adjustment] (ordersn, orderid, shopid, amount, grass_date, [description]) 
+	VALUES ('NA', 0, 0, 171, '2022-12-31', '期初餘額調整')
 
 -- JKO錢包調整新增紀錄至明細表
 INSERT INTO [dbo].[112501_detail]
