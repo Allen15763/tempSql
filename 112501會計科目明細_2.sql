@@ -1,7 +1,6 @@
 /*
 20221007 updated vg and import 2020
 */
-what
 
 USE PRD_SCM
 GO
