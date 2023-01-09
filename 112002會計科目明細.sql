@@ -1,4 +1,5 @@
 /****** SSMS 中 SelectTopNRows 命令的指令碼  ******/
+just a test
 SELECT TOP (1000) [ordersn]
       ,[supplier_id]
       ,[period_]
