@@ -34,7 +34,7 @@ SELECT ordersn
 	    ELSE 'dr'--'cr'
 		END cr_dr
 	  , SUM(escrow_amount) amt
-	  FROM consignment_ac WHERE grass_date LIKE '2022-10%' GROUP bY ordersn, supplier_id, grass_date, checkout_payment_method, contract_type) a
+	  FROM consignment_ac WHERE grass_date LIKE '2022-12%' GROUP bY ordersn, supplier_id, grass_date, checkout_payment_method, contract_type) a
 	  WHERE account LIKE '%JKO%'
 
 
@@ -61,7 +61,7 @@ SELECT ordersn
 	    ELSE 'dr'--'cr'
 		END cr_dr
 	  , SUM(escrow_amount) amt
-	  FROM direct_ac WHERE grass_date LIKE '2022-10%' GROUP bY ordersn, supplier_id, grass_date, checkout_payment_method, contract_type) a
+	  FROM direct_ac WHERE grass_date LIKE '2022-12%' GROUP bY ordersn, supplier_id, grass_date, checkout_payment_method, contract_type) a
   WHERE account LIKE '%JKO%'
   --GROUP BY CUBE (type_, account)
   GROUP BY CUBE (period_, account)
@@ -82,7 +82,7 @@ SELECT order_sn
 	    ELSE 'dr'--'cr'
 		END cr_dr
 	  , SUM(escrow_amount) amt
-	  FROM out WHERE grass_date LIKE '2022-10%' GROUP bY order_sn, CAST(grass_date AS CHAR(7)), payment_method) a
+	  FROM out WHERE grass_date LIKE '2022-12%' GROUP bY order_sn, CAST(grass_date AS CHAR(7)), payment_method) a
 	  WHERE account LIKE '%JKO%'
 
 --Refund 112002 ©ú²Ó »P´¡¤J¬ö¿ý
@@ -155,10 +155,10 @@ SELECT ordersn, shopid, source, grass_date, SUM(amount) amount
 			 ELSE 'cr'--'dr'
 		END cr_dr
 FROM (
-	SELECT *, 'shopee' AS source FROM PRD_SCM.dbo.shopee_wallet_daily_trans WHERE grass_date LIKE '2022-10%'
+	SELECT *, 'shopee' AS source FROM PRD_SCM.dbo.shopee_wallet_daily_trans WHERE grass_date LIKE '2022-12%'
 	UNION ALL
 	SELECT ordersn, orderid, shopid, amount, CAST('1900/1/1' AS datetime) AS transaction_time, 'NA' AS transaction_type, grass_date, 'jko' AS source 
-	FROM PRD_SCM.dbo.jko_wallet_daily_trans WHERE grass_date LIKE '2022-10%') a
+	FROM PRD_SCM.dbo.jko_wallet_daily_trans WHERE grass_date LIKE '2022-12%') a
   GROUP BY ordersn, shopid, source, grass_date) b
 WHERE amount <> 0 AND source LIKE '%jko%'
 GROUP BY grass_date
